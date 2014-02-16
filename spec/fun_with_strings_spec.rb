@@ -95,18 +95,15 @@ describe 'anagram?' do
   end
 end
 
-describe 'anagram?' do
-  it 'should return true for empty string' do
-	"".anagram?("").should eq(true)
-  end
-end
-
 describe 'my_anagram_groups' do
   it 'should return [[eats teas]] for eats teas' do
 	"eats teas".anagram_groups.should eq([["eats", "teas"]])
   end
   it 'should return [[eats teas], [start, tarts] for eats start teas tarts' do
 	"eats start teas tarts".anagram_groups.should eq([["eats", "teas"],["start", "tarts"]])
+  end
+  it 'should ignore_case' do
+	"eats Teas".anagram_groups.should eq([["eats", "Teas"]])
   end
 end
 

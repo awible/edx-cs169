@@ -32,8 +32,10 @@ module FunWithStrings
   def anagram?(compare_word)
     return false if self.size != compare_word.size
 	return true if 
-	  compare_word.chars.group_by(&:chr).map { |k, v| [k, v.size]}.sort ==
-	  self.chars.group_by(&:chr).map { |k, v| [k, v.size]}.sort
+	  compare_word.downcase.chars.sort.join == self.downcase.chars.sort.join
+	  #the following works too... 
+	#compare_word.downcase.chars.group_by(&:chr).map { |k, v| [k, v.size]}.sort ==
+	#self.downcase.chars.group_by(&:chr).map { |k, v| [k, v.size]}.sort
 	false
   end
 
