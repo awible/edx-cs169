@@ -1,5 +1,5 @@
 require './lib/fun_with_strings'
-#require 'debugger'
+require 'debugger'
 
 describe 'palindrome detection' do
   it 'should work for simple strings' do
