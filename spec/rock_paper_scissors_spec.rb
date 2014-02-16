@@ -1,7 +1,45 @@
 require 'rock_paper_scissors'
 require 'debugger'
 
-describe RockPaperScissors, :pending => true do
+describe RSP_Implement do
+  rock = RSP_Implement.new("R")
+  paper = RSP_Implement.new("P")
+  scissors = RSP_Implement.new("S")
+  describe 'Rock < Paper' do
+	puts "rock < paper: " + (rock < paper).to_s
+	(rock < paper).should == true
+  end
+  describe 'Rock > Paper' do
+	puts "rock > paper: " + (rock > paper).to_s
+	(rock > paper).should == false
+  end
+  describe 'Rock == Paper' do
+	puts "rock == paper: " + (rock == paper).to_s
+	(rock == paper).should == false
+  end
+  describe 'Rock == Rock' do
+	puts "rock == rock: " + (rock == rock).to_s
+	(rock == rock).should == true
+  end
+  describe 'Rock < Rock' do
+	puts "rock < rock: " + (rock < rock).to_s
+	(rock < rock).should == false
+  end
+  describe 'Rock > Rock' do
+	puts "rock > rock: " + (rock > rock).to_s
+	(rock > rock).should == false
+  end
+  describe 'Scissors < Scissors' do
+	puts "scissors < scissors: " + (scissors < scissors).to_s
+	(scissors < scissors).should == false
+  end
+  describe 'Scissors > Scissors' do
+	puts "scissors > scissors: " + (scissors > scissors).to_s
+	(scissors > scissors).should == false
+  end
+end
+
+describe RockPaperScissors do
   before(:each) do
     @rock = ['Armando','R'] ; @paper = ['Dave','P'] ; @scissors = ['Sam','S']
   end
