@@ -1,4 +1,4 @@
-require './hw0-1.rb'
+require './lib/hw0-1.rb'
 describe "sum_elements_of_array_of_integers" do
   it "returns_0_for_empty_array" do
     sum([]).should eq(0)

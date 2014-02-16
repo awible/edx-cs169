@@ -1,4 +1,4 @@
-require './hw0-2.rb'
+require './lib/hw0-2.rb'
 describe "hello_world" do
   it "returns_hello_Adrian_when_Adrian_passed" do
     hello("Adrian").should eq("Hello, Adrian")
