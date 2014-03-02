@@ -6,35 +6,27 @@ describe RSP_Implement do
   paper = RSP_Implement.new("P")
   scissors = RSP_Implement.new("S")
   describe 'Rock < Paper' do
-	puts "rock < paper: " + (rock < paper).to_s
 	(rock < paper).should == true
   end
   describe 'Rock > Paper' do
-	puts "rock > paper: " + (rock > paper).to_s
 	(rock > paper).should == false
   end
   describe 'Rock == Paper' do
-	puts "rock == paper: " + (rock == paper).to_s
 	(rock == paper).should == false
   end
   describe 'Rock == Rock' do
-	puts "rock == rock: " + (rock == rock).to_s
 	(rock == rock).should == true
   end
   describe 'Rock < Rock' do
-	puts "rock < rock: " + (rock < rock).to_s
 	(rock < rock).should == false
   end
   describe 'Rock > Rock' do
-	puts "rock > rock: " + (rock > rock).to_s
 	(rock > rock).should == false
   end
   describe 'Scissors < Scissors' do
-	puts "scissors < scissors: " + (scissors < scissors).to_s
 	(scissors < scissors).should == false
   end
   describe 'Scissors > Scissors' do
-	puts "scissors > scissors: " + (scissors > scissors).to_s
 	(scissors > scissors).should == false
   end
 end
@@ -66,15 +58,23 @@ describe RockPaperScissors do
     it 'base case' do
       RockPaperScissors.tournament_winner([@rock,@paper]).should == @paper
     end
+	it 'simple recursive case' do
+      tourney = [
+          [ ['Armando', 'P'], ['Dave', 'S'] ],      
+		  [ ['Richard', 'R'], ['Michael', 'S'] ]
+        ]
+      RockPaperScissors.tournament_winner(tourney).should == ['Richard', 'R']
+	end
+
     it 'recursive case' do
       tourney = [
         [
-          [ ["Armando", "P"], ["Dave", "S"] ],      
-          [ ["Richard", "R"], ["Michael", "S"] ]
+          [ ['Armando', 'P'], ['Dave', 'S'] ],      
+		  [ ['Richard', 'R'], ['Michael', 'S'] ]
         ],
         [
-          [ ["Allen", "S"], ["Omer", "P"] ],
-          [ ["David E.", "R"], ["Richard X.", "P"] ]
+          [ ['Allen', 'S'], ['Omer', 'P'] ],
+          [ ['David E.', 'R'], ['Richard X.', 'P'] ]
         ]
       ]
       RockPaperScissors.tournament_winner(tourney).should == ['Richard', 'R']

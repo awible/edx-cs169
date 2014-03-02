@@ -25,8 +25,6 @@ class RSP_Implement
 end
 
 class RockPaperScissors
-  
-  # Exceptions this class can raise:
   class NoSuchStrategyError < StandardError ; end
 
   def self.winner(player1, player2)
@@ -37,7 +35,12 @@ class RockPaperScissors
   end
 
   def self.tournament_winner(tournament)
-    # YOUR CODE HERE
+	if tournament[0][0].is_a?String then
+	  winner = RockPaperScissors.winner(tournament[0], tournament[1])
+	else
+	  winner = RockPaperScissors.winner(
+		tournament_winner(tournament[0]),
+		tournament_winner(tournament[1]))
+    end
   end
-
 end
