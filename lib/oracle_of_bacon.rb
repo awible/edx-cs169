@@ -29,7 +29,6 @@ class OracleOfBacon
 
   def from_does_not_equal_to
     # YOUR CODE HERE
-	#validates_with(@from, @to, {if @from ! 
 	if (@from == @to) then
 	  errors.add(:base, 'From and To are equal')
 	  false
@@ -53,15 +52,17 @@ class OracleOfBacon
       # convert all of these into a generic OracleOfBacon::NetworkError,
       #  but keep the original error message
       # your code here
+	  raise OracleOfBacon::NetworkError
     end
     # your code here: create the OracleOfBacon::Response object
+	response = OracleOfBacon::Response.new(xml)
   end
 
   def make_uri_from_arguments
     # your code here: set the @uri attribute to properly-escaped URI
     #   constructed from the @from, @to, @api_key arguments
 	#@uri = "oracleofbacon.org/cgi-bin/xml?p=" + @api_key + "&a=" + @from.gsub(' ','+') + "&b=" + (@to==nil ? "Kevin+Bacon" : @to.gsub(' ','+'))
-	@uri = URI.encode("http://oracleofbacon.org/cgi-bin/xml?p=" + @api_key + "&a=" + self.from.gsub(' ','+') + "&b=" + self.to.gsub(' ','+'))
+	@uri = URI.encode("http://oracleofbacon.org/cgi-bin/xml?p=" + @api_key + "&a=" + ((self.from != nil) ? self.from.gsub(' ','+') : "") + "&b=" + ((self.to != nil) ? self.to.gsub( ' ','+') : ""))
   end
       
   class Response
